@@ -37,7 +37,5 @@ public class TaxSystem {
         }
 
         System.out.println("Total Tax Collected = " + totalTax);
-
-        sc.close();
     }
 }

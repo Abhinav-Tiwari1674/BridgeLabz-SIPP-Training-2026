@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class ParkingSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int capacity = 5;
         int occupied = 0;
         int choice;

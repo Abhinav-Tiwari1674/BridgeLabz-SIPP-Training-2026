@@ -1,4 +1,4 @@
-package Seneriobased;
+
 import java.util.Scanner;
 
 

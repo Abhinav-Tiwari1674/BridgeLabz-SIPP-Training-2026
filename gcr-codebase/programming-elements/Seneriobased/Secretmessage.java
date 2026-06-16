@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Secretmessage {
     public static void main(String[] args) {
-        Scanner sc=new Secretmessage();
+        Scanner sc= new Scanner(System.in);
         System.out.println("Enter a message: ");
         String message=sc.nextLine();
         //Counts vowels, consonants, digits, and special characters.

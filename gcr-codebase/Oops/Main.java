@@ -18,7 +18,6 @@ class Student implements Comparable<Student> {
         return id + " - " + name + " - " + marks;
     }
 }
-
 public class Main {
     public static void main(String[] args) {
         TreeSet<Student> ts = new TreeSet<>();

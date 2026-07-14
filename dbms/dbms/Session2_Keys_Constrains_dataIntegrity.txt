@@ -1,0 +1,92 @@
+Session 2: Keys, Constraints & Data Integrity
+
+------------------------------------------------------------
+Use Case 1: Define Primary Keys in COVID Tables
+
+Objective:
+Ensure that each country has only one COVID record for a specific reporting date by defining a composite primary key.
+
+Task:
+Set Country and Date as a composite primary key in the covid_cases table.
+
+SQL:
+CREATE TABLE covid_cases (
+    country VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    confirmed_indian_national INT,
+    confirmed_foreign_national INT,
+    recoveries INT,
+    deaths INT,
+    confirmed_cases INT,
+    PRIMARY KEY (country, date)
+);
+
+------------------------------------------------------------
+Use Case 2: Create Foreign Key Relationships
+
+Objective:
+Establish referential integrity between covid_cases and countries reference table.
+
+Task:
+Create countries table and establish foreign key relationship.
+
+SQL:
+CREATE TABLE countries (
+    country_id INT AUTO_INCREMENT PRIMARY KEY,
+    country_name VARCHAR(100) UNIQUE NOT NULL
+);
+
+ALTER TABLE covid_cases
+ADD CONSTRAINT fk_country
+FOREIGN KEY (country) REFERENCES countries(country_name);
+
+------------------------------------------------------------
+Use Case 3: Add Constraints to Ensure Data Quality
+
+Objective:
+Ensure accuracy and reliability of COVID data.
+
+Task:
+Add NOT NULL constraints and a CHECK constraint.
+
+SQL:
+ALTER TABLE covid_cases
+MODIFY country VARCHAR(100) NOT NULL,
+MODIFY date DATE NOT NULL,
+MODIFY confirmed_cases INT NOT NULL;
+
+ALTER TABLE covid_cases
+ADD CONSTRAINT chk_deaths
+CHECK (deaths <= confirmed_cases);
+
+------------------------------------------------------------
+Use Case 4: Set Default Values
+
+Objective:
+Automatically assign default values when no value is provided.
+
+Task:
+Set default value of 0 for recoveries and CURRENT_TIMESTAMP for last_updated.
+
+SQL:
+ALTER TABLE covid_cases
+ADD COLUMN recoveries INT DEFAULT 0;
+
+ALTER TABLE covid_cases
+ADD COLUMN last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+------------------------------------------------------------
+Use Case 5: Prevent Duplicate Country-Date Entries
+
+Objective:
+Ensure duplicate records are not stored.
+
+Task:
+Create UNIQUE constraint on Country and Date.
+
+SQL:
+ALTER TABLE covid_cases
+ADD CONSTRAINT unique_country_date UNIQUE (country, date);
+
+------------------------------------------------------------
+End of Assignment

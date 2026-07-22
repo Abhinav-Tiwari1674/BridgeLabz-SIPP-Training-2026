@@ -15,7 +15,7 @@ public class StackImplementation {
         stackArray[++top] = value;
         System.out.println("Pushed " + value + " to stack.");
     }public int pop(){
-        if (top < 0) {
+        if (top < 0){
             System.out.println("Stack is empty. Cannot pop.");
             return -1; 
         }
@@ -24,16 +24,16 @@ public class StackImplementation {
         return poppedValue;
     }
     public int peek(){
-        if (top < 0) {
+        if (top < 0){
             System.out.println("Stack is empty. Cannot peek.");
             return -1; 
         }
         return stackArray[top];
     }
     public boolean isEmpty(){
-        return top < 0;
+        return top <0;
     }
     public boolean isFull(){
-        return top >= maxSize - 1;
+        return top >= maxSize -1;
     }
 }

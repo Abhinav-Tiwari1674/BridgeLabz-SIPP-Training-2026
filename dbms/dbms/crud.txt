@@ -1,0 +1,21 @@
+
+create database covid19;
+use covid19;
+SELECT * FROM covid19.`covid_19_india - covid_19_india`;
+
+-- Insert data 
+INSERT INTO `covid_19_india - covid_19_india`
+(`Sno`, `Date`, `Time`, `State/UnionTerritory`, `ConfirmedIndianNational`, `ConfirmedForeignNational`, `Cured`, `Deaths`, `Confirmed`)
+VALUES
+(371, '2020-03-26', '18:00', 'Delhi', 20, 2, 5, 1, 22);
+
+
+
+-- delete
+DELETE FROM `covid_19_india - covid_19_india`
+WHERE `Sno` = 371;
+
+-- --update-- 
+UPDATE `covid_19_india - covid_19_india`
+SET `Cured` = 10
+WHERE `Sno` = 371;
